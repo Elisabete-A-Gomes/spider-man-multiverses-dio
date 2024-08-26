@@ -1,7 +1,7 @@
 @import url('reset.css');
 @import url('global.css');
 @import url('components/_navigator.css');
-@import url('components/_pills.css');
+@import url('components/_pills.css'); /* componentes - botões na cor vermelho */
 @import url('components/_link-button.css');
 @import url('components/_gallery.css');
 
@@ -84,6 +84,9 @@
   flex-direction: row;
 }
 
+/* 
+-> Para reutilizar a estilização, já que o que muda é a imagem
+-> Concatenação  */
 .s-spiderman-01-01 {
   background-image: url('../images/spiderman-tobey/movie-01/background.png');
   background-size:cover;
