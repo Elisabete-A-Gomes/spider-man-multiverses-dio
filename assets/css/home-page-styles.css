@@ -5,6 +5,7 @@ body {
   background-color: var(--primary-color);
 }
 
+/* Pseudo elemento, antes do body */
 body::before {
   content: "";
   background-image: url('../images/spider-man-background.jpg');
@@ -37,12 +38,13 @@ body::before {
   vertical-align: middle;
 }
 
+/* pai do carrossel*/
 .s-container {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  perspective: 3000px;
+  perspective: 3000px; /* faz o efeito de pespectiva */
 }
 
 .s-card {
@@ -53,6 +55,10 @@ body::before {
   transition: filter .5s ease-in-out;
 }
 
+/* 
+-> primeiro filho (nth-child) da class ".s-card" 
+-> rotateY serve para rotacionar o objeto
+*/
 .s-card:nth-child(1) {
   transform: rotateY(0deg) translateZ(50vw);
 }
@@ -92,6 +98,7 @@ body::before {
   transition: bottom 1s ease-in-out;
 }
 
+/* pai dos botões do carrosel */
 .s-controller {
   position: absolute;
   display: flex;
@@ -150,7 +157,7 @@ body::before {
 
 .s-card--hovered .s-card__image {
   transform: scale(1.4);
-  filter: drop-shadow(30px 10px 4px rgba(0, 0, 0, .5));
+  filter: drop-shadow(30px 10px 4px rgba(0, 0, 0, .5)); /* sombra projetada */
 }
 
 body#spider-man-01-hovered::before {
@@ -170,7 +177,7 @@ body[id^="spider-man-"]::before {
 }
 
 body[id^="spider-man-"] .s-card:not(.s-card--hovered) {
-  filter: grayscale(100%);
+  filter: grayscale(100%); 
 }
 
 .s-card--hovered .s-card__title {
@@ -181,6 +188,12 @@ body[id^="spider-man-"] .s-card:not(.s-card--hovered) {
   display: flex;
   justify-content: center;
   width: calc(100vw / 3 - 10%);
+  /* 
+  para colocar os cards um em cima do outro:
+  -> 100vh é largura área útil;
+  -> 100/ 3 porque são 3 cards;
+  -> 10% deixa os cards grudados um em cima do outro;
+  */
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in;
 }
